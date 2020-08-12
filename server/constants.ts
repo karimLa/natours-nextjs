@@ -26,3 +26,11 @@ export const queryUpdateOptions: QueryFindOneAndUpdateOptions = {
   new: true,
   runValidators: true,
 };
+
+export const JWTSecret = process.env.JWT_SECRET;
+export const JWTExpiresIn = process.env.JWT_EXPIRES_IN || '1d';
+
+if (!JWTSecret) {
+  console.log('JWT_SECRET was not passed.');
+  process.exit(1);
+}
